@@ -12,12 +12,12 @@ const printQuestionMarks = num => {
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
-const objToSq = (ob) => {
+const objToSql = (ob) => {
     let arr = [];
 
     // loop through the keys and push the key/value as a string int arr
     for (let key in ob) {
-        const value = ob[key];
+        let value = ob[key];
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
             // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
@@ -35,7 +35,7 @@ const objToSq = (ob) => {
 }
 
 
-const orm = () => {
+const orm = {
     selectAll: (tableInput, callback) => {
         const queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, (err, result) => {
@@ -44,9 +44,9 @@ const orm = () => {
             }
             callback(result);
         });
-    }
+    },
     insertOne: (table, cols, vals, callback) => {
-        const queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
@@ -65,21 +65,21 @@ const orm = () => {
             callback(result);
         });
 
-    }
+    },
     updateOne: (table, objColVals, condition, callback) => {
-        const queryString = "UPDATE " + table;
+        let queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 
-        connection.query(queryString, (err, result) => {
+        connection.query(queryString, (err, results) => {
             if (err) throw err;
 
             callback(results);
             
-        })
+        });
     }
 
 }
