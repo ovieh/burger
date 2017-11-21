@@ -1,8 +1,8 @@
 $(function () {
 
-    $(".change-devour").on("click", function (event)  {
-        const id = $(this).data("id");
-        const newDevour = $(this).data("newdevour");
+    $(".change-devour").on("click", event => {
+        const id = $(event.currentTarget).data("id");
+        const newDevour = $(event.currentTarget).data("newdevour");
 
         const newDevourState = {
             devoured: newDevour
