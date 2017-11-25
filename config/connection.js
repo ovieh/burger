@@ -1,9 +1,6 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
-require('dotenv').config({
-  path: '../.env'
-})
-
+require('dotenv').config({path: '../.env'});
 let connection = null;
 
 if (process.env.JAWSDB_URL) {

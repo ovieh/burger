@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const dotenv = require('dotenv').config();
 
 const port = process.env.PORT || 3000;
-
 const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
@@ -22,3 +22,6 @@ const routes = require("./controllers/burger_controller");
 app.use("/", routes);
 
 app.listen(port);
+
+module.exports = dotenv;
+
