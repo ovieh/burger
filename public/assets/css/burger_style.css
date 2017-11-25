@@ -7,16 +7,11 @@ img {
     max-height: 300px;
 }
 
-h1 {
+.title {
     /* font-family: 'Press Start 2P', cursive; */
     font-family: 'Luckiest Guy', cursive;
-    
 }
 
-h3 {
-    font-family: 'Luckiest Guy', cursive;
-    
-}
 
 #header {
     margin-bottom: 1.5em;

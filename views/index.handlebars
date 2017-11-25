@@ -2,7 +2,7 @@
   <section class="hero is-danger">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title">
+        <h1 class="title is-1">
           <!-- <img src="assets/img/burger.gif" alt="" class="card-img-top"> -->
           Devour-a-Burger
         </h1>
@@ -30,9 +30,9 @@
       <div class="tile is-child box">
         <p class="title">Devoured Burgers!</p>
         <div class="menu">
-          <ul class="">
+          <ul>
             {{#each burgers}} {{#unless devoured}}
-            <li class="">
+            <li>
               {{id}}. {{burger_name}}
             </li>
             {{/unless}} {{/each}}
@@ -50,7 +50,7 @@
 
           <div class="field">
             <label class="label" for="burger">Burger Name:</label>
-            <input type="text" id="burger" name="name" class="input">
+            <input type="text" id="burger" name="name" class="input" required>
           </div>
 
           <button class="button is-danger" type="submit ">Add Burger</button>
